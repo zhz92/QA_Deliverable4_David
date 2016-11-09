@@ -29,6 +29,7 @@ IS2545 - DELIVERABLE 4: Performance Testing
  3.1 MainPanel.converToInt()
 
  Original code: 
+ 
 			 private int convertToInt(int x) {
 				   int c = 0;
 				   String padding = "0";
@@ -59,35 +60,35 @@ IS2545 - DELIVERABLE 4: Performance Testing
 
  Original code:
 
- public void runContinuous() {
-        _running = true;
-        while (_running) {
-            System.out.println("Running...");
-            int origR = _r;
-            try {
-                Thread.sleep(20);
-            } catch (InterruptedException iex) {
-            }
-            for (int j = 0; j < _maxCount; j++) {
-                _r += (j % _size) % _maxCount;
-                _r += _maxCount;
-            }
-            _r = origR;
-            backup();
-            calculateNextIteration();
-        }
-    }
+				 public void runContinuous() {
+					_running = true;
+					while (_running) {
+					    System.out.println("Running...");
+					    int origR = _r;
+					    try {
+						Thread.sleep(20);
+					    } catch (InterruptedException iex) {
+					    }
+					    for (int j = 0; j < _maxCount; j++) {
+						_r += (j % _size) % _maxCount;
+						_r += _maxCount;
+					    }
+					    _r = origR;
+					    backup();
+					    calculateNextIteration();
+					}
+				    }
     
  Code after refactoring:
 
- public void runContinuous() {
-        _running = true;
-        while (_running) {
-            System.out.println("Running...");
-            backup();
-            calculateNextIteration();
-        }
-    }
+				 public void runContinuous() {
+					_running = true;
+					while (_running) {
+					    System.out.println("Running...");
+					    backup();
+					    calculateNextIteration();
+					}
+				    }
 
  The reason for refactoring as above is because the for loop in the inital method is useless, and the thread.sleep(20) causes the CPU-intensive as well.
 
@@ -99,31 +100,31 @@ IS2545 - DELIVERABLE 4: Performance Testing
 
  Original code:
 
- public String toString() {
-	String toReturn = new String("");
-	String currentState = getText();     
-        for (int j = 0; j < _maxSize; j++) {
-            toReturn += currentState;    
-	}
-	if (toReturn.substring(0,1).equals("X")) {
-	    return toReturn.substring(0,1);
-	} else {
-	    return ".";
-	}
-}
+				 public String toString() {
+					String toReturn = new String("");
+					String currentState = getText();     
+					for (int j = 0; j < _maxSize; j++) {
+					    toReturn += currentState;    
+					}
+					if (toReturn.substring(0,1).equals("X")) {
+					    return toReturn.substring(0,1);
+					} else {
+					    return ".";
+					}
+				}
 
  Code after refactoring:
 
-public String toString() {
-	String toReturn = new String("");
-	String currentState = getText();     
-  toReturn += currentState;    
-	if (toReturn.substring(0,1).equals("X")) {
-	    return toReturn.substring(0,1);
-	} else {
-	    return ".";
-	}
-}
+				public String toString() {
+					String toReturn = new String("");
+					String currentState = getText();     
+				  toReturn += currentState;    
+					if (toReturn.substring(0,1).equals("X")) {
+					    return toReturn.substring(0,1);
+					} else {
+					    return ".";
+					}
+				}
 
  The reason for above refactoring is because the for loop in the inital method is unnessary and causes CPU-intensive.
 
