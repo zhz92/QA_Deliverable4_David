@@ -18,4 +18,4 @@ hs_err_pid*
 /dist/
 /nbproject/
 /build/
-*.log
+*backup.txt
