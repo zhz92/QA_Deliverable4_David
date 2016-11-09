@@ -29,25 +29,25 @@ IS2545 - DELIVERABLE 4: Performance Testing
  3.1 MainPanel.converToInt()
 
  Original code: 
- private int convertToInt(int x) {
-           int c = 0;
-           String padding = "0";
-           while (c < _r) {
-               String l = new String("0");
-               padding += l;
-               c++;
-           }
-           String n = padding + String.valueOf(x);
-           int q = Integer.parseInt(n);
-           return q;
-       }
+			 private int convertToInt(int x) {
+				   int c = 0;
+				   String padding = "0";
+				   while (c < _r) {
+				       String l = new String("0");
+				       padding += l;
+				       c++;
+				   }
+				   String n = padding + String.valueOf(x);
+				   int q = Integer.parseInt(n);
+				   return q;
+			       }
     
  Code after refactoring:
 
-private int convertToInt(int x) {
-        if (x < 0) throw new NumberFormatException();
-        return x;
-    }
+			private int convertToInt(int x) {
+				if (x < 0) throw new NumberFormatException();
+				return x;
+			    }
     
  The reason for refactoring as above is because the padding in the intial method is total unnecessary, and the while loop causes the CPU-intensive.
 
