@@ -13,3 +13,8 @@ The methods I found that are CPU-intensive are as follows,
 
   2.2 MainPanle.runContinuous()
 ![picture2](https://cloud.githubusercontent.com/assets/16587395/20127860/41b3453a-a611-11e6-8b64-bc307aad20c9.png)
+
+  2.3 Cell.toString()
+![picture3](https://cloud.githubusercontent.com/assets/16587395/20127912/c2a477ea-a611-11e6-91ec-e909cb103094.png)
+
+
