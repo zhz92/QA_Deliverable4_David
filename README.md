@@ -22,7 +22,7 @@ IS2545 - DELIVERABLE 4: Performance Testing
   2.3 Cell.toString()
  ![picture3](https://cloud.githubusercontent.com/assets/16587395/20127912/c2a477ea-a611-11e6-91ec-e909cb103094.png)
 
- From the image, the Cell.<init>() is little bit CPU-intensive, and after going back to the source code, found this method is necessary to be refactored.
+ From the image, the Cell.< init >() is little bit CPU-intensive, and after going back to the source code, found this method is necessary to be refactored.
   
         3. Refactoring of methods 
 
