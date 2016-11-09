@@ -135,3 +135,13 @@ IS2545 - DELIVERABLE 4: Performance Testing
      4. Pinning test for each refactoring
 
  The pinning test code contains in the Test Packages of this repo.
+ 
+ When doing the pinning testing, I found that to do testing to private and void method is very difficult. The following links are the references for my pinning testing:
+ 
+ http://saturnboy.com/2010/11/testing-private-methods-in-java/
+ 
+ https://github.com/rickykoter/CS1632_Deliverable5/blob/master/PinningTests.java
+ 
+ From the above reference, I learned how to do unit testing against private method using 
+           method.setAccessible(true);
+ And void method using reflection.
