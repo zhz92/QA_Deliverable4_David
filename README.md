@@ -1,10 +1,11 @@
 # QA_Deliverable4_David
 IS2545 - DELIVERABLE 4: Performance Testing
 
-1. Summary
+     1. Summary
+
  This assignment is for Performance Testing against a given program called Conway's Game of Life simulation. The rationale is to use profiling tool, VisualVM, to determin which method in the program is most CPU intensive, then adding pinning test and refactor the method to be more performant.
 
-2. Methods found to be refactored via VisualVM
+     2. Methods found to be refactored via VisualVM
 
  The methods I found that are CPU-intensive are as follows,
 
@@ -16,32 +17,30 @@ IS2545 - DELIVERABLE 4: Performance Testing
   2.2 MainPanel.runContinuous()
  ![picture2](https://cloud.githubusercontent.com/assets/16587395/20127860/41b3453a-a611-11e6-8b64-bc307aad20c9.png)
 
- The MainPanel.runContinuous() method also using CPU intensivly, covering 36% of total CPU usage time, therefore need to be refactored.
+ The MainPanel.runContinuous() method also using CPU intensivly, covering 38% of total CPU usage time, therefore need to be refactored.
 
   2.3 Cell.toString()
  ![picture3](https://cloud.githubusercontent.com/assets/16587395/20127912/c2a477ea-a611-11e6-91ec-e909cb103094.png)
 
  From the image, the Cell.<init>() is little bit CPU-intensive, and after going back to the source code, found this method is necessary to be refactored.
-
- 3. Refactoring of methods 
+  
+        3. Refactoring of methods 
 
  3.1 MainPanel.converToInt()
 
  Original code: 
-
-private int convertToInt(int x) {
-        int c = 0;
-        String padding = "0";
-        while (c < _r) {
-            String l = new String("0");
-            padding += l;
-            c++;
-        }
-
-        String n = padding + String.valueOf(x);
-        int q = Integer.parseInt(n);
-        return q;
-    }
+ private int convertToInt(int x) {
+           int c = 0;
+           String padding = "0";
+           while (c < _r) {
+               String l = new String("0");
+               padding += l;
+               c++;
+           }
+           String n = padding + String.valueOf(x);
+           int q = Integer.parseInt(n);
+           return q;
+       }
     
  Code after refactoring:
 
@@ -132,6 +131,6 @@ public String toString() {
 
  ![picture1](https://cloud.githubusercontent.com/assets/16587395/20128450/1af16a30-a616-11e6-93bc-cd90aecdee49.png)
 
- 4. Pinning test for each refactoring
+     4. Pinning test for each refactoring
 
  The pinning test code contains in the Test Packages of this repo.
