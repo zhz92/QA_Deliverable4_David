@@ -135,9 +135,9 @@ IS2545 - DELIVERABLE 4: Performance Testing
 
      4. Pinning test for each refactoring
 
- The pinning test code contains in the Test Packages of this repo.
+ The pinning test code contains in the Test Packages of this repo, and it is compatible for both original code and refactored code.
  
- When doing the pinning testing, I found that to do testing to private and void method is very difficult. The following links are the references for my pinning testing:
+ When doing the pinning testing, I found that to do testing to private and void method is very difficult, but difficulty does not mean impossible. After trying bunch of times by myself without success, I found the following links are useful and they are the references for my pinning testing:
  
  http://saturnboy.com/2010/11/testing-private-methods-in-java/
  
